@@ -11,9 +11,9 @@
     <context id="DB2Tables" targetRuntime="MyBatis3">
         <!--数据库连接地址账号密码-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://xxxx/miaosha"
-                        userId="xxxx"
-                        password="xxxx">
+                        connectionURL="jdbc:mysql://localhost/miaosha"
+                        userId="root"
+                        password="lidingkui">
         </jdbcConnection>
 
 
@@ -38,33 +38,33 @@
         </javaClientGenerator>
 
 
-        <!--生成对应表及类名-->
-        <!--<table tableName="user_info" domainObjectName="UserDO" enableCountByExample="false"-->
-        <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
-        <!--selectByExampleQueryId="false"></table>-->
-        <!--<table tableName="user_password" domainObjectName="UserPasswordDO" enableCountByExample="false"-->
-               <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
-               <!--selectByExampleQueryId="false"></table>-->
+        生成对应表及类名
+        <table tableName="user_info" domainObjectName="UserDO" enableCountByExample="false"
+        enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+        selectByExampleQueryId="false"></table>
+        <table tableName="user_password" domainObjectName="UserPasswordDO" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
 
-        <!--<table tableName="item" domainObjectName="ItemDO" enableCountByExample="false"-->
-               <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
-               <!--selectByExampleQueryId="false"></table>-->
-        <!--<table tableName="item_stock" domainObjectName="ItemStockDO" enableCountByExample="false"-->
-               <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
-               <!--selectByExampleQueryId="false"></table>-->
+        <table tableName="item" domainObjectName="ItemDO" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
+        <table tableName="item_stock" domainObjectName="ItemStockDO" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
 
-        <!--<table tableName="order_info" domainObjectName="OrderDO" enableCountByExample="false"-->
-               <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
-               <!--selectByExampleQueryId="false"></table>-->
+        <table tableName="order_info" domainObjectName="OrderDO" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
 
 
-        <!--<table tableName="sequence_info" domainObjectName="SequenceDO" enableCountByExample="false"-->
-               <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
-               <!--selectByExampleQueryId="false"></table>-->
+        <table tableName="sequence_info" domainObjectName="SequenceDO" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
 
-        <!--<table tableName="promo" domainObjectName="PromoDO" enableCountByExample="false"-->
-               <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"-->
-               <!--selectByExampleQueryId="false"></table>-->
+        <table tableName="promo" domainObjectName="PromoDO" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false"></table>
 
 
 

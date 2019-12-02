@@ -1,5 +1,7 @@
 package com.miaoshaproject.dataobject;
 
+import org.apache.ibatis.annotations.Mapper;
+
 import java.math.BigDecimal;
 
 public class ItemDO {
