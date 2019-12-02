@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.miaoshaproject.dao.UserDOMapper">
-    <resultMap id="BaseResultMap" type="com.miaoshaproject.dataobject.UserDO">
 
+
+    <resultMap id="BaseResultMap" type="com.miaoshaproject.dataobject.UserDO">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="gender" jdbcType="TINYINT" property="gender"/>
@@ -12,14 +13,13 @@
         <result column="third_party_id" jdbcType="VARCHAR" property="thirdPartyId"/>
     </resultMap>
 
-    <sql id="Base_Column_List">
 
+    <sql id="Base_Column_List">
     id, name, gender, age, telphone, register_mode, third_party_id
-  </sql>
+    </sql>
 
 
     <select id="selectByTelphone" resultMap="BaseResultMap">
-
         select
         <include refid="Base_Column_List"/>
         from user_info
@@ -28,7 +28,6 @@
 
 
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-
         select
         <include refid="Base_Column_List"/>
         from user_info
@@ -37,26 +36,23 @@
 
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-
     delete from user_info
     where id = #{id,jdbcType=INTEGER}
-  </delete>
+    </delete>
 
 
     <insert id="insert" parameterType="com.miaoshaproject.dataobject.UserDO">
-
     insert into user_info (id, name, gender, 
       age, telphone, register_mode, 
       third_party_id)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=TINYINT}, 
       #{age,jdbcType=INTEGER}, #{telphone,jdbcType=VARCHAR}, #{registerMode,jdbcType=VARCHAR}, 
       #{thirdPartyId,jdbcType=VARCHAR})
-  </insert>
+     </insert>
 
 
     <insert id="insertSelective" parameterType="com.miaoshaproject.dataobject.UserDO" keyProperty="id"
             useGeneratedKeys="true">
-
         insert into user_info
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -108,7 +104,6 @@
 
 
     <update id="updateByPrimaryKeySelective" parameterType="com.miaoshaproject.dataobject.UserDO">
-
         update user_info
         <set>
             <if test="name != null">
@@ -135,7 +130,6 @@
 
 
     <update id="updateByPrimaryKey" parameterType="com.miaoshaproject.dataobject.UserDO">
-
     update user_info
     set name = #{name,jdbcType=VARCHAR},
       gender = #{gender,jdbcType=TINYINT},
@@ -144,5 +138,6 @@
       register_mode = #{registerMode,jdbcType=VARCHAR},
       third_party_id = #{thirdPartyId,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
-  </update>
+    </update>
+
 </mapper>
