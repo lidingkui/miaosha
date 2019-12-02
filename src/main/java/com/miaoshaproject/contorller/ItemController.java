@@ -43,7 +43,7 @@ public class ItemController extends BaseController {
         itemModel.setStock(stock);
         itemModel.setImgUrl(imgUrl);
         itemModel.setDescription(description);
-//
+        //封装新的对象信息
         ItemModel itemModelForReturn = itemService.createItem(itemModel);
         ItemVo itemVO = this.convertVOFromModel(itemModelForReturn);
         return CommonReturnType.create(itemVO);
