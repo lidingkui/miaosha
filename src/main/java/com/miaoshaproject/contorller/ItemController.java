@@ -5,6 +5,7 @@ import com.miaoshaproject.error.BussinessException;
 import com.miaoshaproject.response.CommonReturnType;
 import com.miaoshaproject.service.ItemService;
 import com.miaoshaproject.service.model.ItemModel;
+import lombok.AllArgsConstructor;
 import org.joda.time.format.DateTimeFormat;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,12 +22,11 @@ import java.util.stream.Collectors;
  */
 @Controller("/item")
 @RequestMapping("/item")
+@AllArgsConstructor
 @CrossOrigin(origins = {"*"}, allowCredentials = "true")
 public class ItemController extends BaseController {
     
-    @Autowired
-    ItemService itemService;
-
+  private  final  ItemService itemService;
 
     //创建商品
     @RequestMapping(value = "/create", method = {RequestMethod.POST}, consumes = {CONTENT_TYPE_FORMED})
@@ -61,6 +61,7 @@ public class ItemController extends BaseController {
 
         return CommonReturnType.create(itemVo);
     }
+
 
     //商品列表页浏览
     @RequestMapping(value = "/list", method = {RequestMethod.GET})

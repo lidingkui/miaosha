@@ -7,6 +7,7 @@ import com.miaoshaproject.error.EmBusinessError;
 import com.miaoshaproject.response.CommonReturnType;
 import com.miaoshaproject.service.UserService;
 import com.miaoshaproject.service.model.UserModel;
+import lombok.AllArgsConstructor;
 import org.apache.tomcat.util.security.MD5Encoder;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,17 +24,15 @@ import java.util.Random;
 
 @RestController
 @RequestMapping("/user")
+@AllArgsConstructor
 @CrossOrigin(origins = {"*"}, allowCredentials = "true")
 //@CrossOrigin(allowCredentials = "true",allowedHeaders = "*")
 public class UserController extends BaseController {
 
-
-    @Autowired
-    private UserService userService;
+    private final UserService userService;
 
     //单例 内部threadLocal
-    @Autowired
-    private HttpServletRequest httpServletRequest;
+    private final HttpServletRequest httpServletRequest;
 
 
     //用户登陆接口
