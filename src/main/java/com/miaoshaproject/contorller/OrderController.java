@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
  * @Auther: Zihaoo
  * @Date: 2019/4/9
  */
-@Controller("/order")
+@Controller
 @RequestMapping("/order")
 @AllArgsConstructor
 @CrossOrigin(origins = {"*"}, allowCredentials = "true")

@@ -22,7 +22,6 @@ public class BaseController {
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public Object handlerException(HttpServletRequest request, Exception ex) {
-
         //必须自己封装data对象，否则data为exception反序列化的对象
         Map<String,Object> responseData = new HashMap<>();
 
@@ -36,6 +35,5 @@ public class BaseController {
 
         }
         return CommonReturnType.create(responseData,"fail");
-
     }
 }
