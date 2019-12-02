@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  * @Auther: Zihaoo
  * @Date: 2019/4/5
  */
-@Controller("/item")
+@Controller
 @RequestMapping("/item")
 @AllArgsConstructor
 @CrossOrigin(origins = {"*"}, allowCredentials = "true")
