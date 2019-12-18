@@ -13,7 +13,6 @@
 
 
     <sql id="Base_Column_List">
-
     id, promo_name, start_date, end_date, item_id, promo_item_price
   </sql>
 
@@ -23,21 +22,21 @@
     select 
     <include refid="Base_Column_List" />
     from promo
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id}
   </select>
 
   <select id="selectByItemId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
     from promo
-    where item_id = #{itemId,jdbcType=INTEGER}
+    where item_id = #{itemId}
   </select>
 
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 
     delete from promo
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id}
   </delete>
 
 
@@ -46,8 +45,8 @@
     insert into promo (id, promo_name, start_date, 
       end_date, item_id, promo_item_price
       )
-    values (#{id,jdbcType=INTEGER}, #{promoName,jdbcType=VARCHAR}, #{startDate,jdbcType=TIMESTAMP}, 
-      #{endDate,jdbcType=TIMESTAMP}, #{itemId,jdbcType=INTEGER}, #{promoItemPrice,jdbcType=DECIMAL}
+    values (#{id}, #{promoName}, #{startDate}, 
+      #{endDate}, #{itemId}, #{promoItemPrice}
       )
   </insert>
 
@@ -77,22 +76,22 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=INTEGER},
+        #{id},
       </if>
       <if test="promoName != null">
-        #{promoName,jdbcType=VARCHAR},
+        #{promoName},
       </if>
       <if test="startDate != null">
-        #{startDate,jdbcType=TIMESTAMP},
+        #{startDate},
       </if>
       <if test="endDate != null">
-        #{endDate,jdbcType=TIMESTAMP},
+        #{endDate},
       </if>
       <if test="itemId != null">
-        #{itemId,jdbcType=INTEGER},
+        #{itemId},
       </if>
       <if test="promoItemPrice != null">
-        #{promoItemPrice,jdbcType=DECIMAL},
+        #{promoItemPrice},
       </if>
     </trim>
   </insert>
@@ -103,33 +102,33 @@
     update promo
     <set>
       <if test="promoName != null">
-        promo_name = #{promoName,jdbcType=VARCHAR},
+        promo_name = #{promoName},
       </if>
       <if test="startDate != null">
-        start_date = #{startDate,jdbcType=TIMESTAMP},
+        start_date = #{startDate},
       </if>
       <if test="endDate != null">
-        end_date = #{endDate,jdbcType=TIMESTAMP},
+        end_date = #{endDate},
       </if>
       <if test="itemId != null">
-        item_id = #{itemId,jdbcType=INTEGER},
+        item_id = #{itemId},
       </if>
       <if test="promoItemPrice != null">
-        promo_item_price = #{promoItemPrice,jdbcType=DECIMAL},
+        promo_item_price = #{promoItemPrice},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id}
   </update>
 
 
     <update id="updateByPrimaryKey" parameterType="com.miaoshaproject.dataobject.PromoDO">
 
     update promo
-    set promo_name = #{promoName,jdbcType=VARCHAR},
-      start_date = #{startDate,jdbcType=TIMESTAMP},
-      end_date = #{endDate,jdbcType=TIMESTAMP},
-      item_id = #{itemId,jdbcType=INTEGER},
-      promo_item_price = #{promoItemPrice,jdbcType=DECIMAL}
-    where id = #{id,jdbcType=INTEGER}
+    set promo_name = #{promoName},
+      start_date = #{startDate},
+      end_date = #{endDate},
+      item_id = #{itemId},
+      promo_item_price = #{promoItemPrice}
+    where id = #{id}
   </update>
 </mapper>

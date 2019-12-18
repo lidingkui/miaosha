@@ -22,7 +22,7 @@
         select
         <include refid="Base_Column_List"/>
         from item
-        where id = #{id,jdbcType=INTEGER}
+        where id = #{id}
     </select>
 
 
@@ -37,7 +37,7 @@
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 
     delete from item
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id}
   </delete>
 
 
@@ -46,8 +46,8 @@
     insert into item (id, title, price, 
       description, sales, img_url
       )
-    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
-      #{description,jdbcType=VARCHAR}, #{sales,jdbcType=INTEGER}, #{imgUrl,jdbcType=VARCHAR}
+    values (#{id}, #{title}, #{price}, 
+      #{description}, #{sales}, #{imgUrl}
       )
   </insert>
 
@@ -78,22 +78,22 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
-                #{id,jdbcType=INTEGER},
+                #{id},
             </if>
             <if test="title != null">
-                #{title,jdbcType=VARCHAR},
+                #{title},
             </if>
             <if test="price != null">
-                #{price,jdbcType=DECIMAL},
+                #{price},
             </if>
             <if test="description != null">
-                #{description,jdbcType=VARCHAR},
+                #{description},
             </if>
             <if test="sales != null">
-                #{sales,jdbcType=INTEGER},
+                #{sales},
             </if>
             <if test="imgUrl != null">
-                #{imgUrl,jdbcType=VARCHAR},
+                #{imgUrl},
             </if>
         </trim>
     </insert>
@@ -104,41 +104,41 @@
         update item
         <set>
             <if test="title != null">
-                title = #{title,jdbcType=VARCHAR},
+                title = #{title},
             </if>
             <if test="price != null">
-                price = #{price,jdbcType=DECIMAL},
+                price = #{price},
             </if>
             <if test="description != null">
-                description = #{description,jdbcType=VARCHAR},
+                description = #{description},
             </if>
             <if test="sales != null">
-                sales = #{sales,jdbcType=INTEGER},
+                sales = #{sales},
             </if>
             <if test="imgUrl != null">
-                img_url = #{imgUrl,jdbcType=VARCHAR},
+                img_url = #{imgUrl},
             </if>
         </set>
-        where id = #{id,jdbcType=INTEGER}
+        where id = #{id}
     </update>
 
 
     <update id="updateByPrimaryKey" parameterType="com.miaoshaproject.dataobject.ItemDO">
 
 update item
-set title = #{title,jdbcType=VARCHAR},
-price = #{price,jdbcType=DECIMAL},
-description = #{description,jdbcType=VARCHAR},
-sales = #{sales,jdbcType=INTEGER},
-img_url = #{imgUrl,jdbcType=VARCHAR}
-where id = #{id,jdbcType=INTEGER}
+set title = #{title},
+price = #{price},
+description = #{description},
+sales = #{sales},
+img_url = #{imgUrl}
+where id = #{id}
 </update>
 
 
     <update id="increaseSales">
 update item
 set sales = sales + #{amount}
-where id = #{id,jdbcType=INTEGER}
+where id = #{id}
 </update>
 
 </mapper>

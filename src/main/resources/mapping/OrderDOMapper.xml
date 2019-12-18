@@ -24,25 +24,24 @@
         select
         <include refid="Base_Column_List"/>
         from order_info
-        where id = #{id,jdbcType=VARCHAR}
+        where id = #{id}
     </select>
 
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
 
     delete from order_info
-    where id = #{id,jdbcType=VARCHAR}
+    where id = #{id}
   </delete>
 
 
     <insert id="insert" parameterType="com.miaoshaproject.dataobject.OrderDO">
-
     insert into order_info (id, user_id, item_id, 
       item_price, amount, order_price, 
       promo_id)
-    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, #{itemId,jdbcType=INTEGER}, 
-      #{itemPrice,jdbcType=DECIMAL}, #{amount,jdbcType=INTEGER}, #{orderPrice,jdbcType=DECIMAL}, 
-      #{promoId,jdbcType=INTEGER})
+    values (#{id}, #{userId}, #{itemId}, 
+      #{itemPrice}, #{amount}, #{orderPrice}, 
+      #{promoId})
   </insert>
 
 
@@ -74,25 +73,25 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
-                #{id,jdbcType=VARCHAR},
+                #{id},
             </if>
             <if test="userId != null">
-                #{userId,jdbcType=INTEGER},
+                #{userId},
             </if>
             <if test="itemId != null">
-                #{itemId,jdbcType=INTEGER},
+                #{itemId},
             </if>
             <if test="itemPrice != null">
-                #{itemPrice,jdbcType=DECIMAL},
+                #{itemPrice},
             </if>
             <if test="amount != null">
-                #{amount,jdbcType=INTEGER},
+                #{amount},
             </if>
             <if test="orderPrice != null">
-                #{orderPrice,jdbcType=DECIMAL},
+                #{orderPrice},
             </if>
             <if test="promoId != null">
-                #{promoId,jdbcType=INTEGER},
+                #{promoId},
             </if>
         </trim>
     </insert>
@@ -103,37 +102,37 @@
         update order_info
         <set>
             <if test="userId != null">
-                user_id = #{userId,jdbcType=INTEGER},
+                user_id = #{userId},
             </if>
             <if test="itemId != null">
-                item_id = #{itemId,jdbcType=INTEGER},
+                item_id = #{itemId},
             </if>
             <if test="itemPrice != null">
-                item_price = #{itemPrice,jdbcType=DECIMAL},
+                item_price = #{itemPrice},
             </if>
             <if test="amount != null">
-                amount = #{amount,jdbcType=INTEGER},
+                amount = #{amount},
             </if>
             <if test="orderPrice != null">
-                order_price = #{orderPrice,jdbcType=DECIMAL},
+                order_price = #{orderPrice},
             </if>
             <if test="promoId != null">
-                promo_id = #{promoId,jdbcType=INTEGER},
+                promo_id = #{promoId},
             </if>
         </set>
-        where id = #{id,jdbcType=VARCHAR}
+        where id = #{id}
     </update>
 
 
     <update id="updateByPrimaryKey" parameterType="com.miaoshaproject.dataobject.OrderDO">
 
     update order_info
-    set user_id = #{userId,jdbcType=INTEGER},
-      item_id = #{itemId,jdbcType=INTEGER},
-      item_price = #{itemPrice,jdbcType=DECIMAL},
-      amount = #{amount,jdbcType=INTEGER},
-      order_price = #{orderPrice,jdbcType=DECIMAL},
-      promo_id = #{promoId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=VARCHAR}
+    set user_id = #{userId},
+      item_id = #{itemId},
+      item_price = #{itemPrice},
+      amount = #{amount},
+      order_price = #{orderPrice},
+      promo_id = #{promoId}
+    where id = #{id}
   </update>
 </mapper>

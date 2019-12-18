@@ -19,7 +19,7 @@
     select 
     <include refid="Base_Column_List" />
     from item_stock
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id}
   </select>
 
 
@@ -28,14 +28,14 @@
     select
     <include refid="Base_Column_List" />
     from item_stock
-    where item_id = #{itemId,jdbcType=INTEGER}
+    where item_id = #{itemId}
   </select>
 
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
 
     delete from item_stock
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id}
   </delete>
 
 
@@ -43,7 +43,7 @@
 
     insert into item_stock (id, stock, item_id
       )
-    values (#{id,jdbcType=INTEGER}, #{stock,jdbcType=INTEGER}, #{itemId,jdbcType=INTEGER}
+    values (#{id}, #{stock}, #{itemId}
       )
   </insert>
 
@@ -64,13 +64,13 @@
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
-        #{id,jdbcType=INTEGER},
+        #{id},
       </if>
       <if test="stock != null">
-        #{stock,jdbcType=INTEGER},
+        #{stock},
       </if>
       <if test="itemId != null">
-        #{itemId,jdbcType=INTEGER},
+        #{itemId},
       </if>
     </trim>
   </insert>
@@ -81,22 +81,22 @@
     update item_stock
     <set>
       <if test="stock != null">
-        stock = #{stock,jdbcType=INTEGER},
+        stock = #{stock},
       </if>
       <if test="itemId != null">
-        item_id = #{itemId,jdbcType=INTEGER},
+        item_id = #{itemId},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id}
   </update>
 
 
   <update id="updateByPrimaryKey" parameterType="com.miaoshaproject.dataobject.ItemStockDO">
 
     update item_stock
-    set stock = #{stock,jdbcType=INTEGER},
-      item_id = #{itemId,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
+    set stock = #{stock},
+      item_id = #{itemId}
+    where id = #{id}
   </update>
 
   <update id="decreaseStock">

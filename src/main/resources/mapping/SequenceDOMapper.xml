@@ -19,7 +19,7 @@
         select
         <include refid="Base_Column_List"/>
         from sequence_info
-        where name = #{name,jdbcType=VARCHAR} for update
+        where name = #{name} for update
     </select>
 
 
@@ -28,14 +28,14 @@
         select
         <include refid="Base_Column_List"/>
         from sequence_info
-        where name = #{name,jdbcType=VARCHAR}
+        where name = #{name}
     </select>
 
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
 
     delete from sequence_info
-    where name = #{name,jdbcType=VARCHAR}
+    where name = #{name}
   </delete>
 
 
@@ -43,7 +43,7 @@
 
     insert into sequence_info (name, current_value, step
       )
-    values (#{name,jdbcType=VARCHAR}, #{currentValue,jdbcType=INTEGER}, #{step,jdbcType=INTEGER}
+    values (#{name}, #{currentValue}, #{step}
       )
   </insert>
 
@@ -64,13 +64,13 @@
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="name != null">
-                #{name,jdbcType=VARCHAR},
+                #{name},
             </if>
             <if test="currentValue != null">
-                #{currentValue,jdbcType=INTEGER},
+                #{currentValue},
             </if>
             <if test="step != null">
-                #{step,jdbcType=INTEGER},
+                #{step},
             </if>
         </trim>
     </insert>
@@ -81,20 +81,20 @@
         update sequence_info
         <set>
             <if test="currentValue != null">
-                current_value = #{currentValue,jdbcType=INTEGER},
+                current_value = #{currentValue},
             </if>
             <if test="step != null">
-                step = #{step,jdbcType=INTEGER},
+                step = #{step},
             </if>
         </set>
-        where name = #{name,jdbcType=VARCHAR}
+        where name = #{name}
     </update>
 
 
     <update id="updateByPrimaryKey" parameterType="com.miaoshaproject.dataobject.SequenceDO">
     update sequence_info
-    set current_value = #{currentValue,jdbcType=INTEGER},
-      step = #{step,jdbcType=INTEGER}
-    where name = #{name,jdbcType=VARCHAR}
+    set current_value = #{currentValue},
+      step = #{step}
+    where name = #{name}
   </update>
 </mapper>
